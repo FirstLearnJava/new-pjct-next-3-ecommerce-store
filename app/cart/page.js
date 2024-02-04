@@ -1,9 +1,8 @@
-import { Fragment } from 'react';
 import getCookie from '../utils/cookies';
 import parseJson from '../utils/json';
-import { getProductById } from '../database/products';
 import SingleProducts from './SingleProducts';
 import Link from 'next/link';
+import TotalPrice from './TotalPrice';
 
 export default function CartPage() {
   const cartProductsCookies = getCookie('productQuantities');
@@ -15,7 +14,10 @@ export default function CartPage() {
     <div>
       <Link href="/products">Back to products</Link>
       <SingleProducts />
-      <div>Total price:</div>
+      <TotalPrice cartProducts={cartProducts} />
+      <Link href="/checkout">
+        <button>Buy products</button>
+      </Link>
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {<header>This should be above!</header>}
+        {/* {<header>This should be above!</header>} */}
         {children}
       </body>
     </html>

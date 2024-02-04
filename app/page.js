@@ -18,9 +18,9 @@ export default function HomePage() {
                 the ones, who get it done!
               </p>
               <p>
-                Niemand was founded in 2023, in Vienna. The crafts are made by
+                Niemand was founded 2023, in Vienna. The crafts are made by
                 Marina, she is studing handcrafting in the viennese academy of
-                visual arts and a is tailoring enthusiast since years. When she
+                visual arts and is a tailoring enthusiast since years. When she
                 realized, how well her craftings were received by her family and
                 friends, she got encouraged to create “Niemand”, so she can
                 bring a smile to many more people.

@@ -21,8 +21,8 @@ export default function ProductsPage({ params }) {
       <br />
       <Image
         src={`/pottery/${singleProduct.id}.png`}
-        width="250"
-        height="250"
+        width="200"
+        height="200"
         alt={singleProduct.name}
       ></Image>
       <p>price: {singleProduct.price}</p>
