@@ -10,6 +10,8 @@ export default function CartPage() {
     ? parseJson(cartProductsCookies)
     : undefined;
 
+  type CartProduct = { id: number; quantity: number };
+
   return (
     <div>
       <Link href="/products">Back to products</Link>

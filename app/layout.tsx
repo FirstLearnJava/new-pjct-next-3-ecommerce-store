@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, ReactNode } from 'react';
 import './globals.css';
 import styles from './children.module.scss';
 
@@ -7,7 +7,9 @@ export const metadata = {
   description: 'Your place for selfmade fashion and clothes',
 };
 
-export default function RootLayout({ children }) {
+type RootLayoutProps = { children: ReactNode };
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>

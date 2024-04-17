@@ -2,7 +2,8 @@
 
 import RemoveItem from './actions';
 
-export default function RemoveButton(props) {
+type Props = { id: number };
+export default function RemoveButton(props: Props) {
   return (
     <form>
       <button formAction={async () => await RemoveItem(props.id)}>

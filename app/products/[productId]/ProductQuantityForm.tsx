@@ -1,16 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import AddOrUpdateQuantity from './actions';
+type ProductQuantityFormProps = {
+  productId: number;
+};
 
-export default function ProductQuantityForm(props) {
+export default function ProductQuantityForm(props: ProductQuantityFormProps) {
   const [quantity, setQuantity] = useState(1);
-  function handleChange(event) {
-    setQuantity(event.currentTarget.value);
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    setQuantity(Number(event.currentTarget.value));
   }
   return (
     <form>
-      <label for="quantityInput">
+      <label htmlFor="quantityInput">
         quantity:
         <input
           id="quantityInput"

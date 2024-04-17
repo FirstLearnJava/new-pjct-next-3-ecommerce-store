@@ -1,4 +1,8 @@
-export const products = [
+import { cache } from 'react';
+import { sql } from './connect';
+import { Product } from '../../migrations/1707932515-createTableProducts';
+
+/* export const products = [
   { id: 1, name: 'cups and plates set', price: 24.99, type: 'pottery' },
   { id: 2, name: 'green coffee cups', price: 8.49, type: 'pottery' },
   { id: 3, name: 'blue cylindric pot', price: 9.99, type: 'pottery' },
@@ -31,6 +35,19 @@ export const products = [
   },
 ];
 
-export function getProductById(id) {
+export function getProductById(id: number) {
   return products.find((product) => product.id == id);
-}
+}*/
+
+export const getProducts = cache(async () => {
+  const products = await sql<Product[]>`
+  SELECT * FROM products;`;
+  return products;
+});
+
+export const getSingleProductsById = cache(async (id: number) => {
+  const [singleProduct] = await sql<Product[]>`
+  SELECT * FROM products
+  WHERE id = ${id};`;
+  return singleProduct;
+});

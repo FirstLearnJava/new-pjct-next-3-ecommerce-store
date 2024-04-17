@@ -4,12 +4,14 @@ import { cookies } from 'next/headers';
 import getCookie from '../utils/cookies';
 import parseJson from '../utils/json';
 
-export default async function RemoveItem(id) {
+export default async function RemoveItem(id: number) {
   const cartCookies = getCookie('productQuantities');
   const JsonCartCookies = parseJson(cartCookies);
 
+  type CookieObject = { id: number; quantity: number };
+
   const singleCookieIndex = JsonCartCookies.findIndex(
-    (object) => object.id === id,
+    (object: CookieObject) => object.id === id,
   );
   JsonCartCookies.splice(singleCookieIndex, 1);
 

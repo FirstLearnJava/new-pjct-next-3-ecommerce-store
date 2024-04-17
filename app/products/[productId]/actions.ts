@@ -1,14 +1,18 @@
 'use server';
 
-import getCookie from '@/app/utils/cookies';
-import parseJson from '@/app/utils/json';
+import getCookie from '../../utils/cookies';
+import parseJson from '../../utils/json';
 import { cookies } from 'next/headers';
 
-export default async function AddOrUpdateQuantity(id, quantity) {
+export default async function AddOrUpdateQuantity(
+  id: number,
+  quantity: number,
+) {
+  type ProductQuantity = { id: number; quantity: number };
   const productQuantityCookies = getCookie('productQuantities');
-  const productQuantities = !productQuantityCookies
+  const productQuantities: ProductQuantity[] = !productQuantityCookies
     ? []
-    : parseJson(productQuantityCookies);
+    : (parseJson(productQuantityCookies) as ProductQuantity[]);
 
   const singleCookie = productQuantities.find((productQuantity) => {
     return productQuantity.id === id;
@@ -19,7 +23,7 @@ export default async function AddOrUpdateQuantity(id, quantity) {
       singleCookie.quantity = Number(singleCookie.quantity) + Number(quantity);
     }
   } else {
-    productQuantities.push({ id: id, quantity: quantity });
+    productQuantities.push({ id: Number(id), quantity: quantity });
   }
 
   cookies().set('productQuantities', JSON.stringify(productQuantities));
