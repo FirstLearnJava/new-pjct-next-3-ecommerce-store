@@ -27,6 +27,7 @@
     "secure-json-parse": "^2.7.0",
     "server-only": "^0.0.1",
     "sharp": "^0.33.2",
+    "stripe": "^15.4.0",
     "tsm": "^2.3.0"
   },
   "devDependencies": {

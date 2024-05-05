@@ -13,7 +13,8 @@ export async function up(sql: Sql) {
     id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   product_name varchar(100) NOT NULL,
   type varchar(50) NOT NULL,
-  price decimal(10, 2) NOT NULL
+  price decimal(10, 2) NOT NULL,
+  api_id varchar(100) NOT NULL
   )`;
 }
 

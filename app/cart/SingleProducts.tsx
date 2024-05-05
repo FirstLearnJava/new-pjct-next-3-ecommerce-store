@@ -1,16 +1,16 @@
+import { stripeClient } from '../utils/stripe';
 import getCookie from '../utils/cookies';
 import parseJson from '../utils/json';
 import { getSingleProductsById } from '../database/products';
 import RemoveButton from './RemoveButton';
 import Image from 'next/image';
 
-export default function SingleProducts() {
+export default async function SingleProducts() {
   const cartProductsCookies = getCookie('productQuantities');
   const cartProducts = cartProductsCookies
     ? parseJson(cartProductsCookies)
     : undefined;
 
-  console.log(typeof cartProducts[0].id);
   type CartProduct = { id: number; quantity: number };
 
   if (!cartProducts) {
