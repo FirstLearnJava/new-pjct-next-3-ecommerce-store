@@ -5,6 +5,7 @@ export type Product = {
   productName: string;
   type: string;
   price: number;
+  apiId: string;
 };
 
 export async function up(sql: Sql) {

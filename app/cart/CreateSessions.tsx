@@ -1,13 +1,10 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import { stripeClient } from '../utils/stripe';
-import { getSingleProductsById } from '../database/products';
-import CreatePostBody from './CreatePostBody';
 
-type body = { id: number; quantity: number };
+type body = { price: string; quantity: number };
 interface CreateSessionsProps {
-  cartProducts: body[] | undefined;
+  body: body[] | undefined;
 }
 
 export default function CreateSessions(props: CreateSessionsProps) {
@@ -29,11 +26,3 @@ export default function CreateSessions(props: CreateSessionsProps) {
     <button onClick={() => CreateSessionsAndRedirect()}>Buy products</button>
   );
 }
-
-/* const response = await fetch('/api/sessions', {
-  method: 'POST',
-  body: JSON.stringify({
-    price,
-    quantity: productQuantity,
-  }),
-}); */
